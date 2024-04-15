@@ -123,9 +123,92 @@ export default ErrorPage;
 最も近い error.tsx が表示される<br>
 ネストできる<br>
 
-## aaaa
+## コンポーネント
 
-## aaaa
+React:クライアントでレンダリング<br>
+★NEXT:サーバーサイドレンダリング<br>
+ver13〜<br>
+デフォルト<br>
+
+メリット
+
+- パフォーマンス向上
+- バンドルサイズ小さくできる
+- 機密データをサーバー側で処理する
+- SEO 強い
+
+デメリット (クライアントコンポーネントでしか使えない)
+
+- useState, useEffect などの Hooks
+- onClick, onChange などのユーザーイベント
+- ブラウザ API も使用できない
+
+初期ベージのレンダリングが遅いときある<br>
+
+- 基本的にはサーバー側
+- 以下のケースでクライアントコンポーネント
+  - useState, useEffect などの Hooks
+  - onClick, onChange などのユーザーイベント
+  - ブラウザ API
+
+### 使用ケース
+
+- Sever
+  - Navbar
+  - Sidebar
+  - MainView
+- Client
+  - SearchButton
+  - Button
+
+## SC CC
+
+基本的にログがブラウザで出るか、ターミナルで<br>
+
+dev だと client は両方に出る　 2 回出るときもある<br>
+server 側では state は使用できない<br>
+onClick なんかもそう
+
+## ルートハンドラー
+
+api ディレクトリを作成すると良い<br>
+決まり事 route.ts にすること
+のように記載
+
+異なる場合複数のハンドラ記載可能 restful
+
+```ts
+//http methodと対応
+export const GET = async () => {};
+export const PUT = async () => {};
+export const POST = async () => {};
+export const DELETE = async () => {};
+
+// データが頻繁に表示される場合は....
+// request事に動的に実施されるようにする
+// ルートセグメントコンフィグ
+export const dynamic = "force-dynamic";
+```
+
+## ローディングコンポーネント
+
+loading.tsx<br>
+load の際に呼ばれる
+
+## server actions
+
+form tag の action 属性にコンポーネントを呼び出す
+
+```ts
+<form action={createTask}>...</form>
+```
+
+可読性向上の為に分けて定義する必要することが<br>
+別ファイルのみに定義されたものを呼び出す仕様となっている<br>
+
+クライアント、サーバーどちらからも呼び出せるようにしておく<br>
+任意の名前で OK<br>
+'use server'という追記は必要<br>
 
 ## aaaa
 
