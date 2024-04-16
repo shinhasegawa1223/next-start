@@ -210,7 +210,15 @@ form tag の action 属性にコンポーネントを呼び出す
 任意の名前で OK<br>
 'use server'という追記は必要<br>
 
-## aaaa
+### hooks はサーバーで利用できないため
+
+useFormState を使用する
+
+## ミドルウェア
+
+ブラウザ　ミドルウェア　/<br>
+様々な処理をが行える<br>
+/src/middleware.ts を作成する
 
 ## aaaa
 
